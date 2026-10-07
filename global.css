@@ -1,0 +1,348 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --jenipapo: #1d2b4f;
+  --fibra: #f5ead4;
+  --urucum: #e1543f;
+  --argila: #d9a86c;
+  --folha: #6f8953;
+  --tinta-suave: rgba(245, 234, 212, 0.72);
+  --linha: rgba(245, 234, 212, 0.2);
+  --margem: clamp(24px, 7vw, 112px);
+  --movimento: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--jenipapo);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--fibra);
+  background: var(--jenipapo);
+  font-family: "Bricolage Grotesque", Arial, sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  color: var(--jenipapo);
+  background: var(--argila);
+}
+
+.home-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto auto 1fr;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(46px, 6vh, 76px) var(--margem) clamp(34px, 5vh, 58px);
+  overflow: hidden;
+  background: var(--jenipapo);
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -38vw;
+  z-index: 0;
+  width: min(88vw, 1260px);
+  aspect-ratio: 1;
+  background: repeating-radial-gradient(
+    circle at center,
+    transparent 0 44px,
+    rgba(217, 168, 108, 0.36) 45px 48px,
+    transparent 49px 76px
+  );
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 3;
+  width: clamp(8px, 1vw, 14px);
+  background: var(--urucum);
+}
+
+.home-hero h1,
+.home-hero__introducao,
+.home-hero__acao,
+.home-hero__dica {
+  position: relative;
+  z-index: 2;
+}
+
+.home-hero h1 {
+  grid-column: 1 / 12;
+  grid-row: 1;
+  align-self: start;
+  max-width: 1180px;
+  margin: 0;
+  color: var(--fibra);
+}
+
+.home-hero__sobretitulo {
+  display: block;
+  margin-bottom: clamp(18px, 3vh, 32px);
+  color: var(--argila);
+  font-size: clamp(1.25rem, 2vw, 2.05rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.home-hero__nome {
+  display: block;
+  max-width: 9ch;
+  font-size: clamp(5.4rem, 10.8vw, 11rem);
+  font-weight: 750;
+  line-height: 0.78;
+  letter-spacing: -0.075em;
+  text-wrap: balance;
+}
+
+.home-hero__nome > span {
+  display: block;
+  margin-left: clamp(28px, 7vw, 120px);
+}
+
+.home-hero__introducao {
+  grid-column: 7 / 12;
+  grid-row: 2;
+  max-width: 52ch;
+  margin: clamp(34px, 6vh, 64px) 0 0;
+  padding-left: clamp(18px, 2vw, 28px);
+  color: rgba(245, 234, 212, 0.9);
+  border-left: clamp(5px, 0.7vw, 9px) solid var(--urucum);
+  font-size: clamp(1rem, 1.35vw, 1.22rem);
+  font-weight: 400;
+  line-height: 1.68;
+}
+
+.home-hero__acao {
+  grid-column: 7 / span 4;
+  grid-row: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  min-width: min(100%, 270px);
+  margin-top: 28px;
+  padding: 16px 22px;
+  color: var(--fibra);
+  background: var(--urucum);
+  border: 2px solid var(--urucum);
+  border-radius: 2px 22px 2px 2px;
+  box-shadow: 0 0 0 rgba(217, 168, 108, 0);
+  font-size: 0.88rem;
+  font-weight: 650;
+  letter-spacing: 0.025em;
+  transition:
+    color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms var(--movimento),
+    transform 220ms var(--movimento);
+}
+
+.home-hero__acao:hover {
+  color: var(--jenipapo);
+  background: var(--fibra);
+  border-color: var(--fibra);
+  box-shadow: 8px 8px 0 var(--argila);
+  transform: translate(-4px, -4px);
+}
+
+.home-hero__acao:focus-visible {
+  outline: 3px solid var(--fibra);
+  outline-offset: 5px;
+}
+
+.home-hero__dica {
+  position: absolute;
+  left: clamp(26px, 2.8vw, 48px);
+  bottom: clamp(32px, 5vh, 58px);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--tinta-suave);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.home-hero__dica::after {
+  content: "";
+  width: 2px;
+  height: 42px;
+  background: var(--argila);
+}
+
+@media (max-width: 1040px) {
+  .home-hero {
+    padding-inline: clamp(48px, 6vw, 72px);
+  }
+
+  .home-hero__nome {
+    font-size: clamp(5rem, 11.2vw, 8.2rem);
+  }
+
+  .home-hero__introducao,
+  .home-hero__acao {
+    grid-column-start: 6;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-hero {
+    display: flex;
+    flex-direction: column;
+    padding: 54px 22px 28px 34px;
+  }
+
+  .home-hero::before {
+    top: 68%;
+    right: -88vw;
+    width: 160vw;
+    background: repeating-radial-gradient(
+      circle at center,
+      transparent 0 30px,
+      rgba(217, 168, 108, 0.24) 31px 33px,
+      transparent 34px 54px
+    );
+  }
+
+  .home-hero::after {
+    width: 9px;
+  }
+
+  .home-hero h1,
+  .home-hero__introducao,
+  .home-hero__acao {
+    width: 100%;
+  }
+
+  .home-hero__sobretitulo {
+    margin-bottom: 22px;
+    font-size: clamp(1.05rem, 5vw, 1.35rem);
+  }
+
+  .home-hero__nome {
+    max-width: none;
+    font-size: clamp(3.65rem, 16.3vw, 5.1rem);
+    line-height: 0.82;
+  }
+
+  .home-hero__nome > span {
+    margin-left: clamp(12px, 7vw, 32px);
+  }
+
+  .home-hero__introducao {
+    max-width: 42ch;
+    margin-top: clamp(38px, 7vh, 58px);
+    padding-left: 18px;
+    border-left-width: 6px;
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .home-hero__acao {
+    align-self: flex-start;
+    min-width: min(100%, 260px);
+    margin-top: 28px;
+  }
+
+  .home-hero__dica {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 58px;
+    writing-mode: initial;
+    transform: none;
+  }
+
+  .home-hero__dica::after {
+    width: 42px;
+    height: 2px;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-hero {
+    padding-inline: 27px 16px;
+  }
+
+  .home-hero__nome {
+    font-size: clamp(3.35rem, 15.5vw, 4.1rem);
+  }
+
+  .home-hero__acao {
+    width: 100%;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 761px) {
+  .home-hero {
+    padding-block: 34px 28px;
+  }
+
+  .home-hero__sobretitulo {
+    margin-bottom: 16px;
+  }
+
+  .home-hero__nome {
+    font-size: clamp(4.6rem, 9.5vw, 8rem);
+  }
+
+  .home-hero__introducao {
+    margin-top: 28px;
+    line-height: 1.5;
+  }
+
+  .home-hero__acao {
+    margin-top: 20px;
+  }
+
+  .home-hero__dica {
+    bottom: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .home-hero__acao {
+    transition: none;
+  }
+}
