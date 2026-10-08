@@ -10,6 +10,12 @@ O projeto possui uma página inicial com o catálogo da exposição e páginas d
 - CSS3
 - JavaScript
 
+## Documentação de requisitos
+
+- [Requisitos Funcionais](<Requisitos de Usuário/RF.md>)
+- [Requisitos Não Funcionais](<Requisitos de Usuário/RNF.md>)
+- [Histórias de Usuário](<Requisitos de Usuário/HistoriasUsuario.md>)
+
 ## Histórias de usuário
 
 A Tabela 3 apresenta as histórias de usuário elicitadas para o desenvolvimento da exposição virtual.
