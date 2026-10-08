@@ -6,6 +6,14 @@
     <title>Exposição Virtual Vozes Negras e Indigenas</title>
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="transicao.css" />
+    <script src="script.js" defer></script>
+    <noscript>
+      <style>
+        .div_transicao {
+          display: none;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
     <div class="div_transicao"></div>
@@ -23,54 +31,25 @@
         <a class="home-hero__acao" href="#catalogo">Conhecer exposição</a>
         <span class="home-hero__dica" aria-hidden="true">Role para entrar</span>
       </section>
+
+      <section
+        id="catalogo"
+        class="exposicao exposicao-fade"
+        aria-labelledby="titulo-catalogo"
+        tabindex="-1"
+      >
+        <strong class="exposicao__quantidade" aria-hidden="true">20</strong>
+        <div class="exposicao__conteudo">
+          <h2 id="titulo-catalogo">
+            Vinte mulheres. Muitas formas de transformar a história.
+          </h2>
+          <p>
+            A exposição reúne trajetórias de mulheres negras e indígenas que
+            fizeram da arte, do conhecimento, da liderança e da resistência
+            caminhos para mudar o Brasil.
+          </p>
+        </div>
+      </section>
     </main>
-    <script>
-      window.addEventListener("load", () => {
-        const transicao = document.querySelector(".div_transicao");
-
-        if (transicao) {
-          transicao.style.opacity = "0";
-          window.setTimeout(() => {
-            transicao.style.display = "none";
-          }, 500);
-        }
-      });
-
-      const exposicao = document.querySelector(".exposicao-fade");
-      const botaoConhecerExposicao = document.querySelector(".home-hero__acao");
-
-      if (exposicao) {
-        const reduzirMovimento = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
-
-        if ("IntersectionObserver" in window && !reduzirMovimento) {
-          exposicao.classList.add("exposicao-fade--aguardando");
-
-          const observador = new IntersectionObserver(
-            ([entrada]) => {
-              if (entrada.isIntersecting) {
-                exposicao.classList.add("visivel");
-                observador.disconnect();
-              }
-            },
-            { threshold: 0.18 },
-          );
-
-          observador.observe(exposicao);
-        } else {
-          exposicao.classList.add("visivel");
-        }
-      }
-
-      if (botaoConhecerExposicao && exposicao) {
-        botaoConhecerExposicao.addEventListener("click", () => {
-          window.setTimeout(
-            () => exposicao.focus({ preventScroll: true }),
-            500,
-          );
-        });
-      }
-    </script>
   </body>
 </html>
