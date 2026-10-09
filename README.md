@@ -15,6 +15,7 @@ O projeto possui uma página inicial com o catálogo da exposição e páginas d
 - [Requisitos Funcionais](<Requisitos de Usuário/RF.md>)
 - [Requisitos Não Funcionais](<Requisitos de Usuário/RNF.md>)
 - [Histórias de Usuário](<Requisitos de Usuário/HistoriasUsuario.md>)
+- [Atividade 04 — Histórias de Usuário com IA](<Requisitos de Usuário/Prompt-Historias-Usuarios.pdf>)
 
 ## Histórias de usuário
 
