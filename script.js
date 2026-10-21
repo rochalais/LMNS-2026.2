@@ -1,80 +1,78 @@
-window.addEventListener("load", () => {
+const ocultarTransicaoInicial = () => {
   const transicao = document.querySelector(".div_transicao");
 
-  if (transicao) {
-    transicao.style.opacity = "0";
-    window.setTimeout(() => {
-      transicao.style.display = "none";
-    }, 500);
+  if (!transicao) return;
+
+  transicao.style.opacity = "0";
+  window.setTimeout(() => {
+    transicao.style.display = "none";
+  }, 500);
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", ocultarTransicaoInicial, {
+    once: true,
+  });
+} else {
+  ocultarTransicaoInicial();
+}
+
+const reduzirMovimento = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+
+const revelarAoRolar = (elemento, classeAguardando, limite = 0.18) => {
+  if (!elemento) return;
+
+  if (!("IntersectionObserver" in window) || reduzirMovimento) {
+    elemento.classList.add("visivel");
+    return;
   }
-});
+
+  let observador;
+
+  const revelar = () => {
+    elemento.classList.add("visivel");
+    observador?.disconnect();
+  };
+
+  observador = new IntersectionObserver(
+    ([entrada]) => {
+      if (entrada?.isIntersecting && entrada.intersectionRatio >= limite) {
+        revelar();
+      }
+    },
+    { threshold: [limite] },
+  );
+
+  elemento.classList.add(classeAguardando);
+  observador.observe(elemento);
+};
 
 const exposicao = document.querySelector(".exposicao-fade");
-const botaoConhecerExposicao = document.querySelector(".home-hero__acao");
+const angelaDavis = document.querySelector(".trajetoria-reveal");
 
-if (exposicao) {
-  const reduzirMovimento = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
+revelarAoRolar(exposicao, "exposicao-fade--aguardando");
+revelarAoRolar(angelaDavis, "trajetoria-reveal--aguardando", 0.12);
 
-  if ("IntersectionObserver" in window && !reduzirMovimento) {
-    let observador;
+const ativarRolagemSuave = (seletorDoLink, destino) => {
+  const link = document.querySelector(seletorDoLink);
 
-    const revelarExposicao = () => {
-      exposicao.classList.add("visivel");
-      if (observador) {
-        observador.disconnect();
-      }
-      window.removeEventListener("scroll", verificarPosicao);
-      window.removeEventListener("resize", verificarPosicao);
-    };
+  if (!link || !destino) return;
 
-    const verificarPosicao = () => {
-      const limites = exposicao.getBoundingClientRect();
-      const entrouNaTela =
-        limites.top < window.innerHeight * 0.9 && limites.bottom > 0;
+  link.addEventListener("click", (evento) => {
+    evento.preventDefault();
+    destino.scrollIntoView({
+      behavior: reduzirMovimento ? "auto" : "smooth",
+      block: "start",
+    });
 
-      if (entrouNaTela) {
-        revelarExposicao();
-      }
-    };
-
-    try {
-      observador = new IntersectionObserver(
-        ([entrada]) => {
-          if (
-            entrada &&
-            entrada.isIntersecting &&
-            entrada.intersectionRatio >= 0.18
-          ) {
-            revelarExposicao();
-          }
-        },
-        { threshold: 0.18 },
-      );
-
-      window.addEventListener("scroll", verificarPosicao, {
-        passive: true,
-      });
-      window.addEventListener("resize", verificarPosicao, {
-        passive: true,
-      });
-      observador.observe(exposicao);
-      exposicao.classList.add("exposicao-fade--aguardando");
-      window.requestAnimationFrame(verificarPosicao);
-    } catch (erro) {
-      revelarExposicao();
-    }
-  } else {
-    exposicao.classList.add("visivel");
-  }
-}
-
-if (botaoConhecerExposicao && exposicao) {
-  botaoConhecerExposicao.addEventListener("click", () => {
     window.setTimeout(
-      () => exposicao.focus({ preventScroll: true }),
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 500,
+      () => destino.focus({ preventScroll: true }),
+      reduzirMovimento ? 0 : 650,
     );
   });
-}
+};
+
+ativarRolagemSuave(".home-hero__acao", exposicao);
+ativarRolagemSuave(".exposicao__primeira", angelaDavis);

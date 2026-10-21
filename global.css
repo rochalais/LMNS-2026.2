@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap");
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("assets/fonts/bricolage-grotesque-latin.woff2") format("woff2");
+}
 
 :root {
   --jenipapo: #1d2b4f;
@@ -6,6 +12,7 @@
   --urucum: #e1543f;
   --argila: #d9a86c;
   --folha: #6f8953;
+  --carvao: #171719;
   --tinta-suave: rgba(245, 234, 212, 0.72);
   --linha: rgba(245, 234, 212, 0.2);
   --margem: clamp(24px, 7vw, 112px);
@@ -284,6 +291,283 @@ a {
   outline-offset: -8px;
 }
 
+.exposicao__primeira {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--urucum);
+  font-size: 1rem;
+  font-weight: 700;
+  transition:
+    gap 220ms var(--movimento),
+    color 220ms ease;
+}
+
+.exposicao__primeira span {
+  color: var(--urucum);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.exposicao__primeira:hover {
+  gap: 28px;
+  color: var(--urucum);
+}
+
+.exposicao__primeira:focus-visible {
+  outline: 3px solid var(--urucum);
+  outline-offset: 7px;
+}
+
+.trajetoria {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0 clamp(18px, 2vw, 34px);
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(58px, 7vh, 92px) var(--margem) clamp(36px, 5vh, 64px);
+  overflow: hidden;
+  color: var(--fibra);
+  background: linear-gradient(
+    90deg,
+    var(--jenipapo) 0 43%,
+    var(--urucum) 43% 100%
+  );
+  scroll-margin-top: 0;
+}
+
+.trajetoria::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: var(--margem);
+  left: 43%;
+  z-index: -1;
+  height: clamp(8px, 1vw, 14px);
+  background: var(--argila);
+}
+
+.trajetoria__numero {
+  position: absolute;
+  right: clamp(-28px, -1.5vw, -8px);
+  bottom: clamp(-30px, -2vw, -10px);
+  z-index: -1;
+  color: rgba(245, 234, 212, 0.12);
+  font-size: clamp(13rem, 29vw, 31rem);
+  font-weight: 800;
+  line-height: 0.68;
+  letter-spacing: -0.12em;
+  pointer-events: none;
+}
+
+.trajetoria__retrato {
+  grid-column: 1 / span 6;
+  grid-row: 1 / -1;
+  align-self: center;
+  width: min(100%, 610px);
+  margin: 0;
+}
+
+.trajetoria__imagem {
+  position: relative;
+  height: min(73vh, 780px);
+  min-height: 510px;
+  overflow: hidden;
+  background: var(--carvao);
+}
+
+.trajetoria__imagem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 58%,
+    rgba(29, 43, 79, 0.28) 100%
+  );
+  pointer-events: none;
+}
+
+.trajetoria__imagem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  filter: grayscale(1) contrast(1.08);
+}
+
+.trajetoria__retrato figcaption {
+  max-width: 62ch;
+  margin-top: 12px;
+  color: rgba(245, 234, 212, 0.7);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.trajetoria__retrato figcaption a {
+  text-decoration: underline;
+  text-decoration-color: var(--argila);
+  text-underline-offset: 3px;
+}
+
+.trajetoria__retrato figcaption a:focus-visible,
+.trajetoria__fonte:focus-visible {
+  outline: 3px solid var(--fibra);
+  outline-offset: 5px;
+}
+
+.trajetoria__cabecalho {
+  grid-column: 6 / -1;
+  grid-row: 1;
+  align-self: center;
+  z-index: 2;
+  padding: clamp(36px, 7vh, 82px) 0 28px;
+}
+
+.trajetoria__periodo {
+  width: fit-content;
+  margin: 0 0 clamp(24px, 4vh, 42px) auto;
+  padding: 8px 14px;
+  color: var(--jenipapo);
+  background: var(--fibra);
+  font-size: clamp(0.78rem, 1vw, 0.92rem);
+  font-weight: 700;
+}
+
+.trajetoria__cabecalho h2 {
+  margin: 0;
+  color: var(--fibra);
+  font-size: clamp(5.2rem, 11vw, 11.8rem);
+  font-weight: 800;
+  line-height: 0.69;
+  letter-spacing: -0.085em;
+}
+
+.trajetoria__cabecalho h2 span {
+  display: block;
+}
+
+.trajetoria__cabecalho h2 span:last-child {
+  margin-left: clamp(24px, 5vw, 86px);
+}
+
+.trajetoria__atuacao {
+  max-width: 30ch;
+  margin: clamp(32px, 5vh, 58px) 0 0 auto;
+  color: var(--jenipapo);
+  font-size: clamp(1rem, 1.5vw, 1.32rem);
+  font-weight: 650;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.trajetoria__historia {
+  grid-column: 7 / -1;
+  grid-row: 2;
+  z-index: 2;
+  align-self: end;
+  max-width: 680px;
+  margin-left: auto;
+  padding-top: clamp(24px, 3vh, 36px);
+  border-top: 2px solid rgba(245, 234, 212, 0.45);
+}
+
+.trajetoria__chamada {
+  max-width: 22ch;
+  margin: 0 0 16px;
+  color: var(--fibra);
+  font-size: clamp(1.35rem, 2.2vw, 2.05rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.trajetoria__historia > p:not(.trajetoria__chamada) {
+  max-width: 62ch;
+  margin: 0;
+  color: rgba(245, 234, 212, 0.88);
+  font-size: clamp(0.9rem, 1.1vw, 1.02rem);
+  line-height: 1.62;
+}
+
+.trajetoria__fonte {
+  display: inline-block;
+  margin-top: 18px;
+  padding-bottom: 4px;
+  color: var(--fibra);
+  border-bottom: 1px solid var(--fibra);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.trajetoria__fonte:hover {
+  color: var(--jenipapo);
+  border-color: var(--jenipapo);
+}
+
+.trajetoria:focus {
+  outline: none;
+}
+
+.trajetoria:focus-visible {
+  outline: 3px solid var(--fibra);
+  outline-offset: -9px;
+}
+
+.trajetoria-reveal {
+  opacity: 1;
+}
+
+.trajetoria-reveal.trajetoria-reveal--aguardando .trajetoria__imagem {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 900ms var(--movimento);
+}
+
+.trajetoria-reveal.trajetoria-reveal--aguardando .trajetoria__cabecalho,
+.trajetoria-reveal.trajetoria-reveal--aguardando .trajetoria__historia,
+.trajetoria-reveal.trajetoria-reveal--aguardando .trajetoria__retrato figcaption {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 620ms ease,
+    transform 760ms var(--movimento);
+}
+
+.trajetoria-reveal.trajetoria-reveal--aguardando.visivel
+  .trajetoria__imagem {
+  clip-path: inset(0 0 0 0);
+}
+
+.trajetoria-reveal.trajetoria-reveal--aguardando.visivel
+  .trajetoria__cabecalho,
+.trajetoria-reveal.trajetoria-reveal--aguardando.visivel
+  .trajetoria__historia,
+.trajetoria-reveal.trajetoria-reveal--aguardando.visivel
+  .trajetoria__retrato
+  figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trajetoria-reveal.trajetoria-reveal--aguardando.visivel
+  .trajetoria__cabecalho {
+  transition-delay: 180ms;
+}
+
+.trajetoria-reveal.trajetoria-reveal--aguardando.visivel
+  .trajetoria__historia,
+.trajetoria-reveal.trajetoria-reveal--aguardando.visivel
+  .trajetoria__retrato
+  figcaption {
+  transition-delay: 320ms;
+}
+
 @media (max-width: 1040px) {
   .home-hero {
     padding-inline: clamp(48px, 6vw, 72px);
@@ -407,6 +691,71 @@ a {
     padding-left: 18px;
     font-size: 1rem;
   }
+
+  .trajetoria {
+    display: block;
+    min-height: auto;
+    padding: 72px 27px 72px 34px;
+    background: linear-gradient(
+      180deg,
+      var(--jenipapo) 0 38%,
+      var(--urucum) 38% 100%
+    );
+  }
+
+  .trajetoria::before {
+    right: 27px;
+    left: 34px;
+    height: 9px;
+  }
+
+  .trajetoria__numero {
+    right: -12px;
+    bottom: -8px;
+    font-size: clamp(12rem, 60vw, 20rem);
+  }
+
+  .trajetoria__retrato {
+    width: min(87%, 500px);
+  }
+
+  .trajetoria__imagem {
+    height: min(64vh, 650px);
+    min-height: 430px;
+  }
+
+  .trajetoria__cabecalho {
+    margin-top: clamp(-92px, -12vw, -58px);
+    padding: 0;
+  }
+
+  .trajetoria__periodo {
+    margin: 0 0 24px auto;
+  }
+
+  .trajetoria__cabecalho h2 {
+    font-size: clamp(4.7rem, 20vw, 8rem);
+    line-height: 0.72;
+  }
+
+  .trajetoria__cabecalho h2 span:last-child {
+    margin-left: clamp(16px, 8vw, 48px);
+  }
+
+  .trajetoria__atuacao {
+    margin-top: 30px;
+    color: var(--fibra);
+  }
+
+  .trajetoria__historia {
+    max-width: 580px;
+    margin-top: 54px;
+    margin-left: 0;
+  }
+
+  .trajetoria__chamada {
+    font-size: clamp(1.5rem, 7vw, 2.15rem);
+  }
 }
 
 @media (max-width: 420px) {
@@ -420,6 +769,22 @@ a {
 
   .home-hero__acao {
     width: 100%;
+  }
+
+  .trajetoria {
+    padding-inline: 27px 18px;
+  }
+
+  .trajetoria__retrato {
+    width: 92%;
+  }
+
+  .trajetoria__imagem {
+    min-height: 390px;
+  }
+
+  .trajetoria__cabecalho h2 {
+    font-size: clamp(4.2rem, 19.5vw, 5.6rem);
   }
 }
 
@@ -462,6 +827,25 @@ a {
   .exposicao-fade,
   .exposicao-fade.exposicao-fade--aguardando {
     opacity: 1;
+    transition: none;
+  }
+
+  .exposicao__primeira {
+    transition: none;
+  }
+
+  .trajetoria-reveal.trajetoria-reveal--aguardando .trajetoria__imagem {
+    clip-path: none;
+    transition: none;
+  }
+
+  .trajetoria-reveal.trajetoria-reveal--aguardando .trajetoria__cabecalho,
+  .trajetoria-reveal.trajetoria-reveal--aguardando .trajetoria__historia,
+  .trajetoria-reveal.trajetoria-reveal--aguardando
+    .trajetoria__retrato
+    figcaption {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }
