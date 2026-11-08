@@ -1,0 +1,115 @@
+:root {
+  --jenipapo: #1d2b4f;
+  --fibra: #f5ead4;
+  --urucum: #e1543f;
+  --margem: clamp(24px, 7vw, 112px);
+  --carvao: #171719;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.biografia {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
+  padding: clamp(72px, 10vw, 144px) var(--margem);
+  color: var(--jenipapo);
+  background: var(--fibra);
+}
+
+.biografia__retrato {
+  width: 100%;
+  max-width: 520px;
+  margin: 0;
+}
+
+.biografia__imagem {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--carvao);
+}
+
+.biografia__imagem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+  filter: grayscale(1) contrast(1.05);
+}
+
+.biografia__retrato figcaption {
+  margin-top: 12px;
+  color: rgba(29, 43, 79, 0.82);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.biografia__retrato figcaption a,
+.biografia__fonte {
+  text-decoration: underline;
+  text-decoration-color: var(--urucum);
+  text-underline-offset: 3px;
+}
+
+.biografia__conteudo {
+  max-width: 68ch;
+}
+
+.biografia__conteudo h2 {
+  max-width: 14ch;
+  margin: 0 0 clamp(24px, 4vw, 42px);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 750;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.biografia__conteudo p {
+  margin: 0 0 1.15em;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.8;
+}
+
+.biografia__fonte {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.biografia__retrato a:focus-visible,
+.biografia__fonte:focus-visible {
+  outline: 3px solid var(--urucum);
+  outline-offset: 5px;
+}
+
+@media (max-width: 760px) {
+  .biografia {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(30px, 7vw, 48px);
+    padding-block: 76px;
+  }
+
+  .biografia__retrato {
+    width: min(100%, 480px);
+  }
+
+  .biografia__conteudo h2 {
+    max-width: 16ch;
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
+  }
+}
