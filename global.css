@@ -42,6 +42,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html.lightbox-aberto,
+body.lightbox-aberto {
+  overflow: hidden;
+}
+
+body.lightbox-aberto {
+  position: fixed;
+  width: 100%;
+}
+
 main {
   min-height: 100vh;
 }
@@ -81,15 +91,42 @@ a {
 }
 
 .site-nav {
+  display: grid;
+  grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 var(--margem);
+}
+
+.site-nav__marca {
+  display: inline-grid;
+  width: fit-content;
+  min-height: 56px;
+  align-content: center;
+  line-height: 1;
+}
+
+.site-nav__marca-titulo {
+  color: var(--argila);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.site-nav__marca-complemento {
+  margin-top: 3px;
+  color: var(--fibra);
+  font-size: 0.72rem;
+  font-weight: 650;
 }
 
 .site-nav__links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 0 clamp(16px, 2.4vw, 36px);
   margin: 0;
   padding: 0;
@@ -111,7 +148,12 @@ a {
   border-bottom-color: var(--argila);
 }
 
-.site-nav__links a:focus-visible {
+.site-nav__links a[aria-current="page"] {
+  color: var(--argila);
+  border-bottom-color: var(--argila);
+}
+
+.site-nav a:focus-visible {
   outline-color: var(--fibra);
 }
 
@@ -469,7 +511,7 @@ a {
 .trajetoria__retrato figcaption {
   max-width: 62ch;
   margin-top: 12px;
-  color: rgba(245, 234, 212, 0.7);
+  color: var(--fibra);
   font-size: 0.72rem;
   line-height: 1.45;
 }
@@ -504,7 +546,7 @@ a {
   font-weight: 700;
 }
 
-.trajetoria__cabecalho h2 {
+.trajetoria__cabecalho :is(h1, h2) {
   margin: 0;
   color: var(--fibra);
   font-size: clamp(5.2rem, 11vw, 11.8rem);
@@ -513,11 +555,11 @@ a {
   letter-spacing: -0.085em;
 }
 
-.trajetoria__cabecalho h2 span {
+.trajetoria__cabecalho :is(h1, h2) span {
   display: block;
 }
 
-.trajetoria__cabecalho h2 span:last-child {
+.trajetoria__cabecalho :is(h1, h2) span:last-child {
   margin-left: clamp(24px, 5vw, 86px);
 }
 
@@ -618,8 +660,8 @@ a {
 }
 
 .trajetoria__fonte:hover {
-  color: var(--jenipapo);
-  border-color: var(--jenipapo);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .biografia {
@@ -978,9 +1020,13 @@ a {
   transform: scale(1.025);
 }
 
-.galeria__abrir:focus-visible,
-.galeria__fechar:focus-visible {
+.galeria__abrir:focus-visible {
   outline: 3px solid var(--urucum);
+  outline-offset: 5px;
+}
+
+.galeria__fechar:focus-visible {
+  outline: 3px solid var(--fibra);
   outline-offset: 5px;
 }
 
@@ -1007,6 +1053,383 @@ a {
 .galeria__licenca-link:focus-visible {
   outline: 3px solid var(--urucum);
   outline-offset: 4px;
+}
+
+.referencias {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: start;
+  gap: 48px clamp(32px, 7vw, 104px);
+  padding: clamp(76px, 10vw, 144px) var(--margem);
+  color: var(--fibra);
+  background: var(--jenipapo);
+  scroll-margin-top: 32px;
+}
+
+.referencias__cabecalho {
+  max-width: 470px;
+}
+
+.referencias__cabecalho h2 {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(2.8rem, 5.3vw, 5.5rem);
+  font-weight: 750;
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+.referencias__cabecalho > p {
+  max-width: 38ch;
+  margin: clamp(24px, 4vw, 40px) 0 0;
+  padding-left: 18px;
+  border-left: 5px solid var(--argila);
+  color: var(--tinta-suave);
+  line-height: 1.7;
+}
+
+.referencias__lista {
+  grid-column: 2;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--linha);
+  list-style: none;
+}
+
+.referencias__lista li {
+  border-bottom: 1px solid var(--linha);
+}
+
+.referencias__lista article {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.8fr) minmax(0, 1.7fr);
+  gap: clamp(20px, 3vw, 42px);
+  padding: clamp(26px, 4vw, 42px) 0;
+}
+
+.referencias__responsavel {
+  margin: 0;
+  color: var(--argila);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.referencias__conteudo h3 {
+  max-width: 25ch;
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 720;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.referencias__conteudo p {
+  max-width: 58ch;
+  margin: 13px 0 0;
+  color: var(--tinta-suave);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.referencias__conteudo a {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--argila);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.referencias__conteudo a:hover {
+  text-decoration-color: var(--fibra);
+}
+
+.referencias__conteudo a:focus-visible {
+  outline: 3px solid var(--fibra);
+  outline-offset: 5px;
+}
+
+.relacionadas {
+  padding: clamp(76px, 10vw, 144px) var(--margem);
+  color: var(--jenipapo);
+  background: var(--fibra);
+  scroll-margin-top: 32px;
+}
+
+.relacionadas__cabecalho {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: end;
+  gap: 32px clamp(32px, 7vw, 104px);
+  margin-bottom: clamp(48px, 7vw, 88px);
+}
+
+.relacionadas__cabecalho h2 {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(2.8rem, 5.3vw, 5.5rem);
+  font-weight: 750;
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+.relacionadas__cabecalho p {
+  max-width: 43ch;
+  margin: 0;
+  padding-left: 18px;
+  border-left: 5px solid var(--urucum);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.relacionadas__lista {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(24px, 3.4vw, 52px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relacionadas__lista > li {
+  min-width: 0;
+}
+
+.relacionadas__grupo-titulo {
+  grid-column: 1 / -1;
+  margin-top: clamp(30px, 5vw, 72px);
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(29, 43, 79, 0.28);
+}
+
+.relacionadas__grupo-titulo:first-child {
+  margin-top: 0;
+}
+
+.relacionadas__grupo-titulo h3 {
+  margin: 0;
+  color: var(--jenipapo);
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  font-weight: 760;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.relacionadas__card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding-top: 10px;
+  border-top: 5px solid var(--jenipapo);
+}
+
+.relacionadas__lista > li[data-grupo="Mulheres indígenas"] .relacionadas__card {
+  border-top-color: var(--folha);
+}
+
+.relacionadas__card figure {
+  margin: 0;
+}
+
+.relacionadas__imagem {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--carvao);
+}
+
+.relacionadas__imagem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.04);
+}
+
+.relacionadas__card--lelia-gonzalez .relacionadas__imagem img {
+  object-position: 52% center;
+}
+
+.relacionadas__card--conceicao-evaristo .relacionadas__imagem img {
+  object-position: 58% center;
+}
+
+.relacionadas__card figure figcaption {
+  min-height: 3.6em;
+  margin-top: 10px;
+  color: rgba(29, 43, 79, 0.76);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.relacionadas__card figure a {
+  text-decoration: underline;
+  text-decoration-color: var(--urucum);
+  text-underline-offset: 3px;
+}
+
+.relacionadas__conteudo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.relacionadas__conteudo h3 {
+  margin: 22px 0 0;
+  font-size: clamp(1.65rem, 2.6vw, 2.6rem);
+  font-weight: 760;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.relacionadas__conteudo > p {
+  max-width: 40ch;
+  margin: 18px 0 28px;
+  line-height: 1.7;
+}
+
+.relacionadas__conteudo > .relacionadas__tipo {
+  margin: 18px 0 0;
+  color: var(--urucum);
+  font-size: 0.82rem;
+  font-weight: 760;
+  line-height: 1.3;
+}
+
+.relacionadas__lista > li[data-grupo="Mulheres indígenas"] .relacionadas__tipo {
+  color: #50643b;
+}
+
+.relacionadas__tipo + h3 {
+  margin-top: 8px;
+}
+
+.galeria__itens--registro-unico {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
+}
+
+.relacionadas__acao {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 11px 20px;
+  color: var(--fibra);
+  background: var(--jenipapo);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.relacionadas__acao:hover {
+  background: var(--urucum);
+}
+
+.relacionadas__card a:focus-visible {
+  outline: 3px solid var(--urucum);
+  outline-offset: 5px;
+}
+
+.pagina-perfil-resumo {
+  color: var(--jenipapo);
+  background: var(--fibra);
+}
+
+.perfil-resumo__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  min-height: calc(100svh - 56px);
+}
+
+.perfil-resumo__retrato {
+  display: grid;
+  align-content: start;
+  margin: 0;
+  padding: clamp(32px, 6vw, 88px) clamp(24px, 5vw, 76px);
+  color: var(--fibra);
+  background: var(--urucum);
+}
+
+.perfil-resumo__retrato img {
+  display: block;
+  width: 100%;
+  height: min(70vh, 760px);
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.04);
+}
+
+.perfil-resumo__retrato figcaption {
+  margin-top: 12px;
+  color: var(--fibra);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.perfil-resumo__retrato figcaption a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.perfil-resumo__conteudo {
+  align-self: center;
+  padding: clamp(54px, 8vw, 124px) var(--margem);
+}
+
+.perfil-resumo__periodo {
+  margin: 0 0 20px;
+  color: var(--urucum);
+  font-weight: 750;
+}
+
+.perfil-resumo__conteudo h1 {
+  max-width: 9ch;
+  margin: 0;
+  font-size: clamp(3.8rem, 8vw, 8rem);
+  font-weight: 780;
+  line-height: 0.82;
+  letter-spacing: -0.07em;
+}
+
+.perfil-resumo__atuacao {
+  max-width: 34ch;
+  margin: 34px 0 0;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.perfil-resumo__introducao {
+  max-width: 55ch;
+  margin: 24px 0 0;
+  line-height: 1.8;
+}
+
+.perfil-resumo__fonte {
+  display: inline-block;
+  margin-top: 30px;
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-color: var(--urucum);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.relacionadas--perfil {
+  border-top: 1px solid rgba(29, 43, 79, 0.22);
+}
+
+.relacionadas__sem-script {
+  margin: 0;
+  padding: 20px;
+  border-left: 5px solid var(--urucum);
 }
 
 .galeria__lightbox {
@@ -1145,8 +1568,16 @@ a {
 }
 
 @media (max-width: 1040px) {
+  html {
+    scroll-padding-top: 8rem;
+  }
+
   .site-nav {
     padding-inline: clamp(24px, 5vw, 52px);
+  }
+
+  .site-nav__links {
+    column-gap: clamp(12px, 2vw, 24px);
   }
 
   .home-hero {
@@ -1161,31 +1592,56 @@ a {
   .home-hero__acao {
     grid-column-start: 6;
   }
+
+  .relacionadas__lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1040px) and (min-width: 761px) {
-  .galeria {
+  .galeria,
+  .referencias {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .galeria__itens {
+  .galeria__itens,
+  .referencias__lista {
     grid-column: 1;
+  }
+
+  .galeria__itens {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 9rem;
+    scroll-padding-top: 15rem;
   }
 
   .site-nav {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
     padding: 8px 22px;
+  }
+
+  .site-nav__marca {
+    min-height: 46px;
+    grid-template-columns: auto auto;
+    align-items: baseline;
+    align-content: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--linha);
+  }
+
+  .site-nav__marca-complemento {
+    margin-top: 0;
   }
 
   .site-nav__links {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: stretch;
     gap: 0 12px;
   }
 
@@ -1343,13 +1799,32 @@ a {
     margin: 0 0 24px auto;
   }
 
-  .trajetoria__cabecalho h2 {
+  .trajetoria__cabecalho :is(h1, h2) {
     font-size: clamp(4.7rem, 20vw, 8rem);
     line-height: 0.72;
   }
 
-  .trajetoria__cabecalho h2 span:last-child {
+  .trajetoria__cabecalho :is(h1, h2) span:last-child {
     margin-left: clamp(16px, 8vw, 48px);
+  }
+
+  .pagina-perfil-completa .trajetoria__cabecalho h1 {
+    max-width: 100%;
+    font-size: clamp(3.7rem, 17vw, 7rem);
+  }
+
+  .pagina-perfil-completa .trajetoria__cabecalho h1 span:last-child {
+    margin-left: clamp(10px, 5vw, 28px);
+  }
+
+  .pagina-perfil-completa:is(
+      [data-profile-id="alessandra-korap"],
+      [data-profile-id="watatakalu-yawalapiti"]
+    )
+    .trajetoria__cabecalho
+    h1 {
+    font-size: clamp(3.15rem, 13.2vw, 5.6rem);
+    letter-spacing: -0.075em;
   }
 
   .trajetoria__atuacao {
@@ -1360,6 +1835,14 @@ a {
     max-width: 580px;
     margin-top: 54px;
     margin-left: 0;
+  }
+
+  .pagina-perfil-completa .trajetoria__cabecalho,
+  .pagina-perfil-completa .trajetoria__historia,
+  .pagina-perfil-completa .trajetoria__citacao {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .trajetoria__chamada {
@@ -1453,11 +1936,80 @@ a {
   .galeria__imagem {
     max-height: 70vh;
   }
+
+  .referencias {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 42px;
+    padding-block: 76px;
+  }
+
+  .referencias__lista {
+    grid-column: 1;
+  }
+
+  .referencias__cabecalho h2 {
+    max-width: 11ch;
+    font-size: clamp(2.8rem, 11vw, 4.5rem);
+  }
+
+  .referencias__lista article {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .relacionadas {
+    padding-block: 76px;
+  }
+
+  .relacionadas__cabecalho {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 24px;
+  }
+
+  .relacionadas__cabecalho h2 {
+    max-width: 11ch;
+    font-size: clamp(2.8rem, 11vw, 4.5rem);
+  }
+
+  .relacionadas__cabecalho p {
+    padding-left: 16px;
+  }
+
+  .relacionadas__lista {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
+  }
+
+  .relacionadas__card figure figcaption {
+    min-height: 0;
+  }
+
+  .perfil-resumo__hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+  }
+
+  .perfil-resumo__retrato {
+    padding: 28px 22px 22px;
+  }
+
+  .perfil-resumo__retrato img {
+    height: min(68vh, 680px);
+  }
+
+  .perfil-resumo__conteudo {
+    padding: 68px 27px 84px;
+  }
+
+  .perfil-resumo__conteudo h1 {
+    font-size: clamp(3.7rem, 18vw, 6rem);
+  }
 }
 
 @media (max-width: 420px) {
   html {
-    scroll-padding-top: 11rem;
+    scroll-padding-top: 15rem;
   }
 
   .site-nav__links {
@@ -1488,8 +2040,21 @@ a {
     min-height: 390px;
   }
 
-  .trajetoria__cabecalho h2 {
+  .trajetoria__cabecalho :is(h1, h2) {
     font-size: clamp(4.2rem, 19.5vw, 5.6rem);
+  }
+
+  .pagina-perfil-completa .trajetoria__cabecalho h1 {
+    font-size: clamp(3.35rem, 16.5vw, 4.7rem);
+  }
+
+  .pagina-perfil-completa:is(
+      [data-profile-id="alessandra-korap"],
+      [data-profile-id="watatakalu-yawalapiti"]
+    )
+    .trajetoria__cabecalho
+    h1 {
+    font-size: clamp(3rem, 13vw, 3.7rem);
   }
 
   .galeria__abrir img {

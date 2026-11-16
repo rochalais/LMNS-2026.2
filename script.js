@@ -1,22 +1,3 @@
-const ocultarTransicaoInicial = () => {
-  const transicao = document.querySelector(".div_transicao");
-
-  if (!transicao) return;
-
-  transicao.style.opacity = "0";
-  window.setTimeout(() => {
-    transicao.style.display = "none";
-  }, 500);
-};
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", ocultarTransicaoInicial, {
-    once: true,
-  });
-} else {
-  ocultarTransicaoInicial();
-}
-
 const reduzirMovimento = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
@@ -100,16 +81,46 @@ if (
   fecharLightbox instanceof HTMLButtonElement
 ) {
   let acionadorAnterior = null;
-  let rolagemAnterior = 0;
-  let overflowAnterior = "";
+  let estadoDaRolagem = null;
+
+  const bloquearRolagem = () => {
+    if (estadoDaRolagem) return;
+
+    estadoDaRolagem = {
+      x: window.scrollX,
+      y: window.scrollY,
+      bodyTop: document.body.style.top,
+      bodyLeft: document.body.style.left,
+    };
+
+    document.documentElement.classList.add("lightbox-aberto");
+    document.body.classList.add("lightbox-aberto");
+    document.body.style.top = `-${estadoDaRolagem.y}px`;
+    document.body.style.left = `-${estadoDaRolagem.x}px`;
+  };
+
+  const restaurarRolagem = () => {
+    if (!estadoDaRolagem) return;
+
+    const { x, y, bodyTop, bodyLeft } = estadoDaRolagem;
+    estadoDaRolagem = null;
+
+    document.documentElement.classList.remove("lightbox-aberto");
+    document.body.classList.remove("lightbox-aberto");
+    document.body.style.top = bodyTop;
+    document.body.style.left = bodyLeft;
+    window.scrollTo({ left: x, top: y, behavior: "auto" });
+  };
+
+  const atualizarVisibilidade = (aberto) => {
+    galeriaLightbox.setAttribute("aria-hidden", String(!aberto));
+    galeriaLightbox.dataset.state = aberto ? "open" : "closed";
+  };
 
   const fecharDialogo = () => {
     if (!galeriaLightbox.open) return;
 
     galeriaLightbox.close();
-    document.documentElement.style.overflow = overflowAnterior;
-    window.scrollTo({ top: rolagemAnterior, behavior: "auto" });
-    acionadorAnterior?.focus({ preventScroll: true });
   };
 
   document.querySelectorAll("[data-lightbox]").forEach((acionador) => {
@@ -121,8 +132,6 @@ if (
 
       evento.preventDefault();
       acionadorAnterior = acionador;
-      rolagemAnterior = window.scrollY;
-      overflowAnterior = document.documentElement.style.overflow;
 
       lightboxImagem.src = imagem.currentSrc || imagem.src;
       lightboxImagem.alt = imagem.alt;
@@ -135,8 +144,9 @@ if (
       lightboxLicenca.textContent = acionador.dataset.lightboxLicense || "";
       lightboxLicenca.hidden = !acionador.dataset.lightboxLicenseHref;
 
-      document.documentElement.style.overflow = "hidden";
       galeriaLightbox.showModal();
+      atualizarVisibilidade(true);
+      bloquearRolagem();
       fecharLightbox.focus();
     });
   });
@@ -158,8 +168,24 @@ if (
   });
 
   galeriaLightbox.addEventListener("click", (evento) => {
-    if (evento.target === galeriaLightbox) {
+    if (evento.target !== galeriaLightbox) return;
+
+    const limites = galeriaLightbox.getBoundingClientRect();
+    const clicouNoFundo =
+      evento.clientX < limites.left ||
+      evento.clientX > limites.right ||
+      evento.clientY < limites.top ||
+      evento.clientY > limites.bottom;
+
+    if (clicouNoFundo) {
       fecharDialogo();
     }
+  });
+
+  galeriaLightbox.addEventListener("close", () => {
+    atualizarVisibilidade(false);
+    restaurarRolagem();
+    acionadorAnterior?.focus({ preventScroll: true });
+    acionadorAnterior = null;
   });
 }

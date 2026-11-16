@@ -6,7 +6,10 @@
     <title>Exposição Virtual Vozes Negras e Indígenas</title>
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="transicao.css" />
+    <script src="dados-perfis.js" defer></script>
+    <script src="navegacao.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="relacionadas.js" defer></script>
     <noscript>
       <style>
         .div_transicao {
@@ -15,18 +18,28 @@
       </style>
     </noscript>
   </head>
-  <body>
-    <div class="div_transicao"></div>
+  <body data-profile-id="angela-davis">
+    <div class="div_transicao" aria-hidden="true"></div>
     <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
     <header class="site-header">
-      <nav class="site-nav" aria-label="Navegação da exposição">
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a
+          class="site-nav__marca"
+          href="#inicio"
+          aria-label="Vozes Negras e Indígenas — página inicial"
+        >
+          <span class="site-nav__marca-titulo">Vozes</span>
+          <span class="site-nav__marca-complemento">Negras e Indígenas</span>
+        </a>
         <ul class="site-nav__links">
-          <li><a href="#inicio">Início</a></li>
+          <li><a href="#inicio" aria-current="page">Início</a></li>
           <li><a href="#catalogo">Exposição</a></li>
           <li><a href="#biografia-angela-davis">Biografia</a></li>
           <li><a href="#linha-do-tempo-angela-davis">Linha do tempo</a></li>
           <li><a href="#legado-angela-davis">Legado</a></li>
           <li><a href="#galeria-angela-davis">Galeria</a></li>
+          <li><a href="#referencias-angela-davis">Referências</a></li>
+          <li><a href="#trajetorias-relacionadas">Outras mulheres</a></li>
         </ul>
       </nav>
     </header>
@@ -503,10 +516,296 @@
         </ul>
       </section>
 
+      <section
+        id="referencias-angela-davis"
+        class="referencias"
+        aria-labelledby="titulo-referencias"
+      >
+        <header class="referencias__cabecalho">
+          <h2 id="titulo-referencias">Referências e fontes</h2>
+          <p>
+            Materiais institucionais, editoriais e documentais consultados para
+            construir esta trajetória.
+          </p>
+        </header>
+
+        <ul class="referencias__lista">
+          <li>
+            <article>
+              <p class="referencias__responsavel">
+                Universidade da Califórnia em Santa Cruz
+              </p>
+              <div class="referencias__conteudo">
+                <h3>Angela Y. Davis — Campus Directory</h3>
+                <p>
+                  Biografia institucional utilizada para dados sobre carreira
+                  acadêmica, ativismo, prisão, absolvição e atuação pela
+                  abolição prisional.
+                </p>
+                <a
+                  href="https://directory.ucsc.edu/cd_detail?guid=G000122719"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Consultar perfil na UC Santa Cruz
+                </a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <p class="referencias__responsavel">
+                Angela Y. Davis, Haymarket Books
+              </p>
+              <div class="referencias__conteudo">
+                <h3><em>Freedom Is a Constant Struggle</em></h3>
+                <p>
+                  Página editorial do livro que fundamenta a citação de
+                  destaque e contextualiza temas como feminismo negro,
+                  internacionalismo e abolição.
+                </p>
+                <a
+                  href="https://www.haymarketbooks.org/books/1437-freedom-is-a-constant-struggle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Consultar livro na Haymarket Books
+                </a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <p class="referencias__responsavel">Critical Resistance</p>
+              <div class="referencias__conteudo">
+                <h3>20 Years of Strategy and Struggle for Abolition</h3>
+                <p>
+                  Conversa com Angela Davis no aniversário de vinte anos da
+                  organização, utilizada para contextualizar sua atuação no
+                  movimento abolicionista.
+                </p>
+                <a
+                  href="https://criticalresistance.org/resources/critical-resistance-20-years-of-strategy-and-struggle-for-abolition/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Consultar histórico na Critical Resistance
+                </a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <p class="referencias__responsavel">
+                Federal Bureau of Investigation
+              </p>
+              <div class="referencias__conteudo">
+                <h3>Angela Davis — FBI Multimedia</h3>
+                <p>
+                  Registro institucional que confirma sua entrada na lista dos
+                  mais procurados, a prisão em 1970 e a absolvição em 1972.
+                </p>
+                <a
+                  href="https://multimedia.fbi.gov/item?id=7435&amp;type=image"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Consultar registro no FBI
+                </a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <p class="referencias__responsavel">
+                Bernard Gotfryd, Library of Congress
+              </p>
+              <div class="referencias__conteudo">
+                <h3>Angela Davis, half-length portrait</h3>
+                <p>
+                  Registro catalográfico que identifica o retrato de 1974, sua
+                  autoria, o acervo responsável e as condições de uso.
+                </p>
+                <a
+                  href="https://www.loc.gov/pictures/item/2006679789/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Consultar fotografia na Library of Congress
+                </a>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        id="trajetorias-relacionadas"
+        class="relacionadas"
+        aria-labelledby="titulo-relacionadas"
+      >
+        <header class="relacionadas__cabecalho">
+          <h2 id="titulo-relacionadas">Catálogo completo</h2>
+          <p>
+            Explore as 10 trajetórias de mulheres negras e as 10 trajetórias
+            de mulheres indígenas reunidas nesta exposição.
+          </p>
+        </header>
+
+        <ul class="relacionadas__lista" data-relacionadas-lista>
+          <li>
+            <article
+              class="relacionadas__card relacionadas__card--lelia-gonzalez"
+            >
+              <figure>
+                <div class="relacionadas__imagem">
+                  <img
+                    src="assets/images/lelia-gonzalez.jpg"
+                    alt="Lélia Gonzalez sorrindo em um retrato em preto e branco"
+                    width="943"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  Foto:
+                  <a
+                    href="https://commons.wikimedia.org/wiki/File:L%C3%A9lia_Gonzalez_by_Cezar_Loureiro.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Cezar Loureiro
+                  </a>
+                  · domínio público
+                </figcaption>
+              </figure>
+              <div class="relacionadas__conteudo">
+                <h3>Lélia Gonzalez</h3>
+                <p>
+                  Intelectual, antropóloga e ativista brasileira que marcou o
+                  feminismo negro latino-americano e formulou o conceito de
+                  amefricanidade.
+                </p>
+                <a
+                  class="relacionadas__acao"
+                  href="lelia-gonzalez.html"
+                  aria-label="Saiba mais sobre Lélia Gonzalez"
+                >
+                  Saiba mais
+                </a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="relacionadas__card relacionadas__card--conceicao-evaristo"
+            >
+              <figure>
+                <div class="relacionadas__imagem">
+                  <img
+                    src="assets/images/conceicao-evaristo.jpg"
+                    alt="Conceição Evaristo fala ao microfone durante um debate"
+                    width="960"
+                    height="641"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  Foto:
+                  <a
+                    href="https://commons.wikimedia.org/wiki/File:ConceicaoEvaristo_(cropped).jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Fora do Eixo
+                  </a>
+                  ·
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/2.0/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CC BY-SA 2.0
+                  </a>
+                </figcaption>
+              </figure>
+              <div class="relacionadas__conteudo">
+                <h3>Conceição Evaristo</h3>
+                <p>
+                  Escritora mineira cuja obra transforma memória, experiência
+                  e cotidiano de mulheres negras em escrevivência.
+                </p>
+                <a
+                  class="relacionadas__acao"
+                  href="conceicao-evaristo.html"
+                  aria-label="Saiba mais sobre Conceição Evaristo"
+                >
+                  Saiba mais
+                </a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="relacionadas__card relacionadas__card--sonia-guajajara"
+            >
+              <figure>
+                <div class="relacionadas__imagem">
+                  <img
+                    src="assets/images/sonia-guajajara.jpg"
+                    alt="Retrato de Sônia Guajajara com pintura facial e colar de penas"
+                    width="960"
+                    height="1315"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  Foto:
+                  <a
+                    href="https://commons.wikimedia.org/wiki/File:S%C3%B4nia_Guajajara_(cropped).jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Andrew Aurélio P. de A. Costa
+                  </a>
+                  ·
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CC BY-SA 4.0
+                  </a>
+                </figcaption>
+              </figure>
+              <div class="relacionadas__conteudo">
+                <h3>Sônia Guajajara</h3>
+                <p>
+                  Liderança do povo Guajajara dedicada à defesa dos direitos
+                  indígenas, dos territórios e da proteção ambiental.
+                </p>
+                <a
+                  class="relacionadas__acao"
+                  href="sonia-guajajara.html"
+                  aria-label="Saiba mais sobre Sônia Guajajara"
+                >
+                  Saiba mais
+                </a>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+
       <dialog
         class="galeria__lightbox"
         aria-labelledby="galeria-lightbox-titulo"
         aria-modal="true"
+        aria-hidden="true"
+        data-state="closed"
       >
         <h2 id="galeria-lightbox-titulo" class="galeria__titulo-ampliado">
           Imagem ampliada

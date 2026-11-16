@@ -4,6 +4,26 @@ Exposição virtual dedicada a apresentar trajetórias de mulheres negras e ind�
 
 O projeto possui uma página inicial com o catálogo da exposição e páginas de trajetória com biografia, linha do tempo, legados, galeria de imagens e referências.
 
+## Acervo da exposição
+
+O catálogo reúne 20 trajetórias, divididas igualmente entre:
+
+- **10 mulheres negras:** Angela Davis, Lélia Gonzalez, Conceição Evaristo,
+  Carolina Maria de Jesus, Sueli Carneiro, Antonieta de Barros, Ruth de Souza,
+  Marielle Franco, Benedita da Silva e Luiza Bairros.
+- **10 mulheres indígenas:** Sônia Guajajara, Célia Xakriabá, Joênia Wapichana,
+  Eliane Potiguara, Djuena Tikuna, Tuíre Kayapó, Alessandra Korap, Daiara
+  Tukano, Txai Suruí e Watatakalu Yawalapiti.
+
+Cada trajetória possui biografia, linha do tempo, contribuições, galeria,
+referências e acesso ao catálogo completo. Os conteúdos compartilhados ficam em
+`dados-perfis.mjs`; para atualizar as páginas estáticas, execute:
+
+```powershell
+node gerar-paginas.mjs
+node validar-site.mjs
+```
+
 ## Tecnologias utilizadas
 
 - HTML5
@@ -27,6 +47,7 @@ O projeto possui uma página inicial com o catálogo da exposição e páginas d
 - [Requisitos Funcionais](<Requisitos de Usuário/RF.md>)
 - [Requisitos Não Funcionais](<Requisitos de Usuário/RNF.md>)
 - [Histórias de Usuário](<Requisitos de Usuário/HistoriasUsuario1.md>)
+- [Projeto Astah — Diagramas do Sistema](<Requisitos de Sistema/Vozes Negras e Indígenas.asta>)
 - [Atividade 04 — Histórias de Usuário com IA](<Requisitos de Usuário/Prompt-Historias-Usuarios.pdf>)
 
 ## Histórias de usuário

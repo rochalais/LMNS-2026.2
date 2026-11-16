@@ -27,16 +27,16 @@
 
 .div_transicao {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #1d2b4f;
+  inset: 0;
   z-index: 9999;
+  background: #1d2b4f;
   opacity: 1;
   pointer-events: none;
-  animation: liberar-transicao 0.5s ease 0.2s forwards;
-  transition: opacity 0.5s ease;
+  visibility: visible;
+  animation: liberar-transicao 420ms ease 120ms forwards;
+  transition:
+    opacity 360ms ease,
+    visibility 360ms ease;
 }
 
 @keyframes liberar-transicao {
@@ -44,6 +44,23 @@
     opacity: 0;
     visibility: hidden;
   }
+}
+
+.div_transicao--liberada {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.div_transicao--saindo {
+  animation: none;
+  opacity: 0;
+  visibility: visible;
+  transition-duration: 280ms;
+}
+
+.div_transicao--saindo.div_transicao--ativa {
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
