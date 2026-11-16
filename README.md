@@ -10,11 +10,23 @@ O projeto possui uma página inicial com o catálogo da exposição e páginas d
 - CSS3
 - JavaScript
 
+## Acessibilidade e compatibilidade
+
+- Layout responsivo com pontos de quebra para celular, tablet e desktop.
+- Navegação nomeada, link para pular ao conteúdo, foco visível e imagens com
+  texto alternativo.
+- A galeria abre imagens em uma lightbox quando o JavaScript está disponível e
+  mantém links para as imagens originais como alternativa.
+- Animações respeitam `prefers-reduced-motion`; o conteúdo e os links principais
+  continuam disponíveis sem JavaScript.
+- Biografia, linha do tempo, legado e galeria usam blocos de estilo
+  compartilháveis; IDs específicos do perfil mantêm os destinos únicos.
+
 ## Documentação de requisitos
 
 - [Requisitos Funcionais](<Requisitos de Usuário/RF.md>)
 - [Requisitos Não Funcionais](<Requisitos de Usuário/RNF.md>)
-- [Histórias de Usuário](<Requisitos de Usuário/HistoriasUsuario.md>)
+- [Histórias de Usuário](<Requisitos de Usuário/HistoriasUsuario1.md>)
 - [Atividade 04 — Histórias de Usuário com IA](<Requisitos de Usuário/Prompt-Historias-Usuarios.pdf>)
 
 ## Histórias de usuário

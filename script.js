@@ -76,3 +76,90 @@ const ativarRolagemSuave = (seletorDoLink, destino) => {
 
 ativarRolagemSuave(".home-hero__acao", exposicao);
 ativarRolagemSuave(".exposicao__primeira", angelaDavis);
+
+const galeriaLightbox = document.querySelector(".galeria__lightbox");
+const lightboxImagem = galeriaLightbox?.querySelector(".galeria__imagem");
+const lightboxDescricao = galeriaLightbox?.querySelector(
+  ".galeria__descricao-ampliada",
+);
+const lightboxCredito = galeriaLightbox?.querySelector(
+  ".galeria__credito-link",
+);
+const lightboxLicenca = galeriaLightbox?.querySelector(
+  ".galeria__licenca-link",
+);
+const fecharLightbox = galeriaLightbox?.querySelector(".galeria__fechar");
+
+if (
+  typeof HTMLDialogElement !== "undefined" &&
+  galeriaLightbox instanceof HTMLDialogElement &&
+  lightboxImagem instanceof HTMLImageElement &&
+  lightboxDescricao instanceof HTMLElement &&
+  lightboxCredito instanceof HTMLAnchorElement &&
+  lightboxLicenca instanceof HTMLAnchorElement &&
+  fecharLightbox instanceof HTMLButtonElement
+) {
+  let acionadorAnterior = null;
+  let rolagemAnterior = 0;
+  let overflowAnterior = "";
+
+  const fecharDialogo = () => {
+    if (!galeriaLightbox.open) return;
+
+    galeriaLightbox.close();
+    document.documentElement.style.overflow = overflowAnterior;
+    window.scrollTo({ top: rolagemAnterior, behavior: "auto" });
+    acionadorAnterior?.focus({ preventScroll: true });
+  };
+
+  document.querySelectorAll("[data-lightbox]").forEach((acionador) => {
+    if (!(acionador instanceof HTMLAnchorElement)) return;
+
+    acionador.addEventListener("click", (evento) => {
+      const imagem = acionador.querySelector("img");
+      if (!imagem) return;
+
+      evento.preventDefault();
+      acionadorAnterior = acionador;
+      rolagemAnterior = window.scrollY;
+      overflowAnterior = document.documentElement.style.overflow;
+
+      lightboxImagem.src = imagem.currentSrc || imagem.src;
+      lightboxImagem.alt = imagem.alt;
+      lightboxDescricao.textContent = acionador.dataset.lightboxCaption || "";
+      lightboxCredito.href =
+        acionador.dataset.lightboxCreditHref || imagem.src;
+      lightboxCredito.textContent =
+        acionador.dataset.lightboxCredit || "Crédito da imagem";
+      lightboxLicenca.href = acionador.dataset.lightboxLicenseHref || "";
+      lightboxLicenca.textContent = acionador.dataset.lightboxLicense || "";
+      lightboxLicenca.hidden = !acionador.dataset.lightboxLicenseHref;
+
+      document.documentElement.style.overflow = "hidden";
+      galeriaLightbox.showModal();
+      fecharLightbox.focus();
+    });
+  });
+
+  fecharLightbox.addEventListener("click", () => {
+    fecharDialogo();
+  });
+
+  galeriaLightbox.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape") {
+      evento.preventDefault();
+      fecharDialogo();
+    }
+  });
+
+  galeriaLightbox.addEventListener("cancel", (evento) => {
+    evento.preventDefault();
+    fecharDialogo();
+  });
+
+  galeriaLightbox.addEventListener("click", (evento) => {
+    if (evento.target === galeriaLightbox) {
+      fecharDialogo();
+    }
+  });
+}

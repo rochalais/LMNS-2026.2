@@ -1,14 +1,162 @@
-<!doctype html>
-<html lang="pt-br">
+﻿<!doctype html>
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Biografia de Angela Davis</title>
-    <link rel="stylesheet" href="biografia-angela-davis.css" />
+    <title>Exposição Virtual Vozes Negras e Indígenas</title>
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="transicao.css" />
+    <script src="script.js" defer></script>
+    <noscript>
+      <style>
+        .div_transicao {
+          display: none;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
-    <main>
-<section
+    <div class="div_transicao"></div>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Navegação da exposição">
+        <ul class="site-nav__links">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#catalogo">Exposição</a></li>
+          <li><a href="#biografia-angela-davis">Biografia</a></li>
+          <li><a href="#linha-do-tempo-angela-davis">Linha do tempo</a></li>
+          <li><a href="#legado-angela-davis">Legado</a></li>
+          <li><a href="#galeria-angela-davis">Galeria</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="conteudo-principal" tabindex="-1">
+      <section id="inicio" class="home-hero" aria-labelledby="titulo-exposicao">
+        <h1 id="titulo-exposicao">
+          <span class="home-hero__sobretitulo">Conheça a exposição</span>
+          <span class="home-hero__nome">Vozes Negras <span>e Indígenas</span></span>
+        </h1>
+        <p class="home-hero__introducao">
+          Uma exposição digital sobre 20 trajetórias de mulheres indígenas e
+          negras que marcaram a história, a cultura, a resistência e a memória
+          coletiva.
+        </p>
+        <a class="home-hero__acao" href="#catalogo">Conhecer exposição</a>
+        <span class="home-hero__dica" aria-hidden="true">Role para entrar</span>
+      </section>
+
+      <section
+        id="catalogo"
+        class="exposicao exposicao-fade"
+        aria-labelledby="titulo-catalogo"
+        tabindex="-1"
+      >
+        <strong class="exposicao__quantidade" aria-hidden="true">20</strong>
+        <div class="exposicao__conteudo">
+          <h2 id="titulo-catalogo">
+            Vinte mulheres. Muitas formas de transformar a história.
+          </h2>
+          <p>
+            A exposição reúne trajetórias de mulheres negras e indígenas que
+            fizeram da arte, do conhecimento, da liderança e da resistência
+            caminhos para mudar o Brasil.
+          </p>
+          <a class="exposicao__primeira" href="#angela-davis">
+            Conhecer Angela Davis
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </section>
+
+      <section
+        id="angela-davis"
+        class="trajetoria trajetoria-reveal"
+        aria-labelledby="titulo-angela-davis"
+        tabindex="-1"
+      >
+        <span class="trajetoria__numero" aria-hidden="true">01</span>
+
+        <figure class="trajetoria__retrato">
+          <div class="trajetoria__imagem">
+            <img
+              src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Angela_Davis_in_2019.jpg/960px-Angela_Davis_in_2019.jpg"
+              alt="Retrato de Angela Davis na Oregon State University, em 2019"
+              width="960"
+              height="1280"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>
+            Angela Davis na Oregon State University, 2019. Fotografia da
+            <a
+              href="https://commons.wikimedia.org/wiki/File:Angela_Davis_in_2019.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Oregon State University
+            </a>
+            ·
+            <a
+              href="https://creativecommons.org/licenses/by-sa/2.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CC BY-SA 2.0
+            </a>
+          </figcaption>
+        </figure>
+
+        <header class="trajetoria__cabecalho">
+          <p class="trajetoria__periodo">1944 — presente</p>
+          <h2 id="titulo-angela-davis">
+            <span>Angela</span>
+            <span>Davis</span>
+          </h2>
+          <p class="trajetoria__atuacao">
+            Filósofa, professora, escritora e ativista
+          </p>
+        </header>
+
+        <div class="trajetoria__historia">
+          <blockquote class="trajetoria__citacao">
+            <p>“A liberdade é uma luta constante.”</p>
+            <footer>
+              <cite>Angela Davis</cite>
+              <span>
+                Tradução do título
+                <a
+                  href="https://books.google.com/books?vid=ISBN9781608465644"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <em>Freedom Is a Constant Struggle</em>
+                </a>
+              </span>
+            </footer>
+          </blockquote>
+          <p class="trajetoria__chamada">
+            Pensar a liberdade como uma prática coletiva.
+          </p>
+          <p>
+            Nascida em Birmingham, nos Estados Unidos, Angela Davis tornou-se
+            uma das vozes mais influentes das lutas por justiça racial,
+            feminismo e abolição prisional. Sua trajetória aproxima pensamento
+            e ação ao mostrar como raça, gênero, classe e encarceramento estão
+            profundamente conectados.
+          </p>
+          <a
+            class="trajetoria__fonte"
+            href="https://directory.ucsc.edu/cd_detail?guid=G000122719"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultar biografia na UC Santa Cruz
+          </a>
+        </div>
+      </section>
+
+      <section
         id="biografia-angela-davis"
         class="biografia"
         aria-labelledby="titulo-biografia-angela-davis"
@@ -16,22 +164,31 @@
         <figure class="biografia__retrato">
           <div class="biografia__imagem">
             <img
-              src="assets/images/angela-davis-1974.jpg"
-              alt="Angela Davis em um retrato de meio corpo, olhando para a câmera"
+              src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Angela_Davis_4732117623_cropped.jpg/960px-Angela_Davis_4732117623_cropped.jpg"
+              alt="Angela Davis em Leipzig, em 2010, segurando flores e um livro"
               width="960"
-              height="1428"
+              height="1209"
               loading="lazy"
               decoding="async"
             />
           </div>
           <figcaption>
-            Angela Davis, 1974. Fotografia de
+            Angela Davis em Leipzig, 2010. Fotografia de Gerd Eiltzer, publicada
+            por
             <a
-              href="https://commons.wikimedia.org/wiki/File:Angela_Davis_in_a_half-length_portrait_by_Bernard_Gotfryd.jpg"
+              href="https://commons.wikimedia.org/wiki/File:Angela_Davis_4732117623_cropped.jpg"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Bernard Gotfryd / Library of Congress
+              dielinke_sachsen
+            </a>
+            ·
+            <a
+              href="https://creativecommons.org/licenses/by/2.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CC BY 2.0
             </a>
           </figcaption>
         </figure>
@@ -69,6 +226,318 @@
           </a>
         </div>
       </section>
+
+      <section
+        id="linha-do-tempo-angela-davis"
+        class="linha-do-tempo"
+        aria-labelledby="titulo-linha-do-tempo"
+      >
+        <div class="linha-do-tempo__cabecalho">
+          <h2 id="titulo-linha-do-tempo">Marcos de uma trajetória</h2>
+          <p>
+            Da perseguição política à contribuição acadêmica, momentos que
+            ajudam a compreender a atuação de Angela Davis.
+          </p>
+        </div>
+
+        <ol class="linha-do-tempo__eventos">
+          <li>
+            <article>
+              <time datetime="1969">1969</time>
+              <h3>Uma voz de projeção nacional</h3>
+              <p>
+                Angela Davis é afastada de seu cargo de professora de Filosofia
+                na Universidade da Califórnia em Los Angeles (UCLA), em meio a
+                controvérsias relacionadas à sua atuação política.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <time datetime="1970">1970</time>
+              <h3>Prisão e mobilização internacional</h3>
+              <p>
+                Acusada em um caso judicial, Davis é incluída na lista dos dez
+                fugitivos mais procurados pelo FBI. Após ser presa, passa
+                dezesseis meses encarcerada enquanto uma campanha internacional
+                exige sua libertação.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <time datetime="1972">1972</time>
+              <h3>Absolvição</h3>
+              <p>
+                Davis é absolvida após dezesseis meses de encarceramento,
+                encerrando um julgamento que mobilizou apoiadores em diversos
+                países.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <time datetime="1994">1994</time>
+              <h3>Reconhecimento acadêmico</h3>
+              <p>
+                Recebe a Cátedra Presidencial da Universidade da Califórnia em
+                Estudos Afro-Americanos e Feministas.
+              </p>
+            </article>
+          </li>
+        </ol>
+
+        <p class="linha-do-tempo__fonte">
+          Fonte dos acontecimentos:
+          <a
+            href="https://directory.ucsc.edu/cd_detail?guid=G000122719"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            biografia oficial da UC Santa Cruz
+          </a>
+        </p>
+      </section>
+
+      <section
+        id="legado-angela-davis"
+        class="legado"
+        aria-labelledby="titulo-legado"
+      >
+        <header class="legado__cabecalho">
+          <h2 id="titulo-legado">Pensamento que transforma estruturas</h2>
+          <p>
+            A relevância de Angela Davis está em aproximar reflexão crítica,
+            educação e organização coletiva na luta contra o racismo e o
+            encarceramento em massa.
+          </p>
+        </header>
+
+        <ul class="legado__contribuicoes">
+          <li>
+            <article>
+              <h3>Uma crítica ao sistema prisional</h3>
+              <p>
+                Davis ajudou a popularizar o conceito de complexo
+                industrial-prisional e desenvolveu uma crítica ao racismo no
+                sistema de justiça criminal. Seu trabalho convida a imaginar
+                alternativas às prisões e a priorizar instituições de educação.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Conhecimento que circula</h3>
+              <p>
+                Como professora, pesquisadora e autora de nove livros, conecta
+                estudos sobre feminismo, cultura afro-americana e teoria
+                crítica a debates públicos sobre justiça e liberdade.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Atuação abolicionista coletiva</h3>
+              <p>
+                Integrante fundadora da Critical Resistance e defensora da
+                abolição prisional, contribui para movimentos que questionam o
+                encarceramento e defendem outras formas de construir justiça e
+                segurança.
+              </p>
+            </article>
+          </li>
+        </ul>
+
+        <p class="legado__fonte">
+          Conteúdo baseado na
+          <a
+            href="https://directory.ucsc.edu/cd_detail?guid=G000122719"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            biografia institucional da UC Santa Cruz
+          </a>
+          .
+        </p>
+      </section>
+
+      <section
+        id="galeria-angela-davis"
+        class="galeria"
+        aria-labelledby="titulo-galeria"
+      >
+        <header class="galeria__cabecalho">
+          <h2 id="titulo-galeria">Em diferentes momentos</h2>
+          <p>
+            Retratos e encontros públicos que registram momentos distintos da
+            trajetória de Angela Davis.
+          </p>
+        </header>
+
+        <ul class="galeria__itens">
+          <li>
+            <figure class="galeria__item">
+              <a
+                class="galeria__abrir"
+                href="assets/images/angela-davis-1974.jpg"
+                aria-label="Ampliar imagem: Angela Davis em retrato de meio corpo, 1974"
+                data-lightbox
+                data-lightbox-caption="Angela Davis em retrato de meio corpo, 1974."
+                data-lightbox-credit="Bernard Gotfryd / Library of Congress"
+                data-lightbox-credit-href="https://commons.wikimedia.org/wiki/File:Angela_Davis_in_a_half-length_portrait_by_Bernard_Gotfryd.jpg"
+              >
+                <img
+                  src="assets/images/angela-davis-1974.jpg"
+                  alt="Angela Davis em retrato de meio corpo, olhando para a câmera, em 1974"
+                  width="960"
+                  height="1428"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span aria-hidden="true">Ampliar imagem</span>
+              </a>
+              <figcaption class="galeria__legenda">
+                Angela Davis em retrato de meio corpo, 1974.
+                <a
+                  href="https://commons.wikimedia.org/wiki/File:Angela_Davis_in_a_half-length_portrait_by_Bernard_Gotfryd.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Fotografia de Bernard Gotfryd / Library of Congress
+                </a>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="galeria__item">
+              <a
+                class="galeria__abrir"
+                href="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Angela_Davis_%2815852241216%29_%28cropped%29.jpg/500px-Angela_Davis_%2815852241216%29_%28cropped%29.jpg"
+                aria-label="Ampliar imagem: Angela Davis durante palestra e debate na Columbia University, 2014"
+                data-lightbox
+                data-lightbox-caption="Angela Davis durante palestra e debate na Columbia University, em 20 de novembro de 2014."
+                data-lightbox-credit="Columbia GSAPP"
+                data-lightbox-credit-href="https://commons.wikimedia.org/wiki/File:Angela_Davis_(15852241216)_(cropped).jpg"
+                data-lightbox-license="CC BY 2.0"
+                data-lightbox-license-href="https://creativecommons.org/licenses/by/2.0/"
+              >
+                <img
+                  src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Angela_Davis_%2815852241216%29_%28cropped%29.jpg/500px-Angela_Davis_%2815852241216%29_%28cropped%29.jpg"
+                  alt="Angela Davis fala durante uma palestra e debate na Columbia University, em 2014"
+                  width="500"
+                  height="667"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span aria-hidden="true">Ampliar imagem</span>
+              </a>
+              <figcaption class="galeria__legenda">
+                Palestra e debate na Columbia University, 2014.
+                <span>
+                  Fotografia de
+                  <a
+                    href="https://commons.wikimedia.org/wiki/File:Angela_Davis_(15852241216)_(cropped).jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Columbia GSAPP
+                  </a>
+                  ·
+                  <a
+                    href="https://creativecommons.org/licenses/by/2.0/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CC BY 2.0
+                  </a>
+                </span>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="galeria__item">
+              <a
+                class="galeria__abrir"
+                href="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Angela_Davis_en_Uruguay.jpg/960px-Angela_Davis_en_Uruguay.jpg"
+                aria-label="Ampliar imagem: Angela Davis em conferência no Teatro Solís, Montevidéu, 2019"
+                data-lightbox
+                data-lightbox-caption="Angela Davis durante conferência no Teatro Solís, Montevidéu, Uruguai, em 22 de março de 2019."
+                data-lightbox-credit="Mediared"
+                data-lightbox-credit-href="https://commons.wikimedia.org/wiki/File:Angela_Davis_en_Uruguay.jpg"
+                data-lightbox-license="CC BY-SA 4.0"
+                data-lightbox-license-href="https://creativecommons.org/licenses/by-sa/4.0/"
+              >
+                <img
+                  src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Angela_Davis_en_Uruguay.jpg/960px-Angela_Davis_en_Uruguay.jpg"
+                  alt="Angela Davis fala em uma conferência no Teatro Solís, em Montevidéu, Uruguai, em 2019"
+                  width="960"
+                  height="635"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span aria-hidden="true">Ampliar imagem</span>
+              </a>
+              <figcaption class="galeria__legenda">
+                Conferência no Teatro Solís, Montevidéu, 2019.
+                <span>
+                  Fotografia de
+                  <a
+                    href="https://commons.wikimedia.org/wiki/File:Angela_Davis_en_Uruguay.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Mediared
+                  </a>
+                  ·
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CC BY-SA 4.0
+                  </a>
+                </span>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+
+      <dialog
+        class="galeria__lightbox"
+        aria-labelledby="galeria-lightbox-titulo"
+        aria-modal="true"
+      >
+        <h2 id="galeria-lightbox-titulo" class="galeria__titulo-ampliado">
+          Imagem ampliada
+        </h2>
+        <button
+          class="galeria__fechar"
+          type="button"
+          aria-label="Fechar imagem ampliada"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <figure class="galeria__imagem-ampliada">
+          <img class="galeria__imagem" src="" alt="" />
+          <figcaption class="galeria__credito-ampliado">
+            <span class="galeria__descricao-ampliada"></span>
+            <a
+              class="galeria__credito-link"
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            ></a>
+            <a
+              class="galeria__licenca-link"
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              hidden
+            ></a>
+          </figcaption>
+        </figure>
+      </dialog>
     </main>
   </body>
 </html>
