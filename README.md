@@ -4,6 +4,10 @@ Exposição virtual dedicada a apresentar trajetórias de mulheres negras e ind�
 
 O projeto possui uma página inicial com o catálogo da exposição e páginas de trajetória com biografia, linha do tempo, legados, galeria de imagens e referências.
 
+## Vídeo de apresentação
+
+[Assistir à apresentação do projeto (MP4)](assets/videos/Vozes_negras_e_indigenas.mp4)
+
 ## Acervo da exposição
 
 O catálogo reúne 20 trajetórias, divididas igualmente entre:
