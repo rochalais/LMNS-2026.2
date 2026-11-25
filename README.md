@@ -6,7 +6,7 @@ O projeto possui uma página inicial com o catálogo da exposição e páginas d
 
 ## Vídeo de apresentação
 
-[Assistir à apresentação do projeto (MP4)](assets/videos/Vozes_negras_e_indigenas.mp4)
+[Assistir à apresentação do projeto (MP4)](assets/videos/apresentacao.mp4)
 
 ## Acervo da exposição
 
