@@ -48,7 +48,6 @@ node validar-site.mjs
 - [Requisitos Não Funcionais](<Requisitos de Usuário/RNF.md>)
 - [Histórias de Usuário](<Requisitos de Usuário/HistoriasUsuario1.md>)
 - [Projeto Astah — Diagramas do Sistema](<Requisitos de Sistema/Vozes Negras e Indígenas.asta>)
-- [Atividade 04 — Histórias de Usuário com IA](<Requisitos de Usuário/Prompt-Historias-Usuarios.pdf>)
 
 ## Histórias de usuário
 
